@@ -1,0 +1,143 @@
+[hidden] {
+	display: none !important;
+}
+:root {
+	--text-color: #231f20;
+	--background-color: #f8f8f6;
+	--accent-color: #9ccfde;
+	--link-color: #3c95a8;
+	--button-color: #6bbaca;
+}
+
+:focus {
+	outline-color: var(--accent-color);
+	outline-width: 0.15em;
+	outline-offset: 0.05em;
+}
+
+* {
+	--flow-spacing: 1rem;
+}
+* + * {
+	margin-top: var(--flow-spacing);
+}
+
+body {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 1.5rem;
+
+	font-family: -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+		Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-weight: 450;
+	font-size: calc(1rem + 0.25vmin);
+}
+body > * + * {
+	--flow-spacing: 4rem;
+}
+
+header {
+}
+footer {
+	text-align: center;
+	font-size: 0.85rem;
+}
+
+[role="button"],
+a,
+button {
+	transition-duration: 150ms;
+	transition-property: color, background-color, border-color, opacity, transform,
+		filter, box-shadow, outline-color;
+	transition-timing-function: ease-in-out;
+}
+
+a {
+	color: var(--link-color);
+}
+a:hover,
+a:active {
+	filter: contrast(110%) saturate(110%);
+}
+[role="button"],
+button {
+	display: inline-block;
+	padding: 0.85em 1em 0.75em;
+	line-height: 1;
+
+	color: white;
+	border-color: var(--button-color);
+	background-color: var(--button-color);
+	font-weight: bold;
+}
+
+h1 small {
+	opacity: 0.75;
+	font-weight: lighter;
+	line-height: 1;
+}
+summary {
+	font-weight: bolder;
+
+	cursor: pointer;
+}
+summary:hover {
+	background: #efefef;
+	box-shadow: 0 0 0 0.5rem #efefef;
+}
+
+label {
+	display: inline-block;
+	font-size: 0.9em;
+	font-weight: bold;
+}
+label + * {
+	--flow-spacing: 0.2rem;
+}
+
+input,
+output,
+select,
+textarea {
+	display: block;
+	width: 100%;
+	padding: 1em;
+	background-color: white;
+	border: 1px solid #bbb;
+}
+output {
+	border-color: #ddd;
+	min-height: 6rem;
+	font-weight: normal;
+}
+output * {
+	--flow-spacing: 0;
+}
+
+:invalid ~ [role="button"],
+:invalid ~ button {
+	pointer-events: none;
+	cursor: not-allowed;
+	filter: grayscale(100%) opacity(80%);
+}
+
+clipboard-copy {
+	cursor: pointer;
+}
+clipboard-copy::before {
+	content: "📑";
+	display: inline-block;
+	width: 2rem;
+}
+clipboard-copy.success {
+	--button-color: var(--accent-color);
+}
+clipboard-copy.success::before {
+	content: "✅";
+}
+
+clipboard-copy:active,
+clipboard-copy:focus,
+clipboard-copy:hover {
+	background-color: #333;
+}
