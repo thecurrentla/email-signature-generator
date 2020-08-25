@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+		<head>
+				<title>The Current - Email Signature Doodad</title>
+				<link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css"/>
+				<style>
+						[hidden] {
+								display: none !important;
+						}
+						:root {
+								--flow-spacing: 1rem;
+								font-family: sans-serif;
+						}
+						* + * {
+								margin-top: var(--flow-spacing);
+						}
+						body {
+								max-width: 600px;
+								margin: 0 auto;
+								padding: 1.5rem;
+						}
+						small {
+								opacity: 0.5;
+						}
+						fieldset {
+								padding: 1rem;
+								border: 0;
+								background-color: #efefef;
+						}
+
+						label {
+								display: inline-block;
+								font-size: 0.9em;
+								font-weight: bold;
+						}
+						label + * {
+								--flow-spacing: 0.2rem;
+						}
+
+						input,
+						output,
+						select,
+						textarea {
+								display: block;
+								width: 100%;
+								padding: 0.5em;
+								background-color: white;
+								border: 1px solid #bbb;
+						}
+						output {
+								border-color: #ddd;
+								min-height: 6rem;
+						}
+						output * {
+								--flow-spacing: 0;
+						}
+
+						[value=""] + clipboard-copy {
+								pointer-events: none;
+								cursor: not-allowed;
+								opacity: 0.5;
+						}
+
+						clipboard-copy {
+								cursor: pointer;
+								display: inline-block;
+								padding: 0.85em 1em 0.65em;
+								line-height: 1;
+
+								color: white;
+								background-color: #555;
+								font-weight: bold;
+						}
+						clipboard-copy::before {
+								content: "📑";
+								display: inline-block;
+								width: 3.25ch;
+						}
+
+						clipboard-copy:active,
+						clipboard-copy:focus,
+						clipboard-copy:hover {
+								background-color: #333;
+						}
+				</style>
+		</head>
+		<body>
+				<header>
+						<h1>
+								<small>The Current</small><br/>
+								Email Signature Doodad
+						</h1>
+				</header>
+				<main>
+						<form>
+								<fieldset>
+										<label for="name">Name</label>
+										<input type="text" id="name" name="name" placeholder="Your Name" required="required">
+
+										<label for="title">Title</label>
+										<input type="text" id="title" name="title" placeholder="Your Title" required="required">
+								</fieldset>
+
+								<fieldset>
+										<label for="output">Output</label>
+										<output id="output" name="output" for="name title"></output>
+										<textarea id="result" name="result" readonly="readonly" hidden="hidden" value=""></textarea>
+										<clipboard-copy for="result">Copy</clipboard-copy>
+								</fieldset>
+						</form>
+
+						<template id="template">
+								<style>
+										.line1 {}
+										.line2 {
+												font-size: 0.9em;
+												line-height: 2;
+										}
+
+										.vr,
+										hr {
+												opacity: 0.5;
+										}
+										hr {
+												display: block;
+												width: 20px;
+												height: 1px;
+												border: 0;
+												border-top: 1px solid currentColor;
+												margin: 12px 0;
+												padding: 0;
+										}
+
+										.name {
+												color: #272425;
+										}
+										.title {
+												opacity: 0.85;
+												font-weight: 500;
+										}
+
+										.link {
+												color: inherit;
+												display: inline-block;
+												text-decoration: underline;
+
+												text-decoration-thickness: 1px;
+												text-underline-offset: 2px;
+												text-decoration-style: wavy;
+												text-decoration-color: #6bbaca;
+												text-decoration-skip-ink: none;
+										}
+										.link-text {
+												color: inherit;
+												font-weight: 600;
+												letter-spacing: 0.01em;
+										}
+								</style>
+								<div dir="auto">
+										<hr/>
+										<div dir="auto" class="line1">
+												<b class="name">Cory Birdsong</b>
+										</div>
+										<div dir="auto" class="line2">
+												<i class="title">Web Developer</i>
+												<span class="vr">&nbsp;/&nbsp;</span>
+												<a href="https://thecurrentla.com/" class="link">
+														<i class="link-text">The Current</i>
+												</a>
+										</div>
+								</div>
+						</template>
+				</main>
+				<script src="https://unpkg.com/@github/clipboard-copy-element@latest" defer="defer"></script>
+				<script src="index.build.js" defer="defer"></script>
+		</body>
+</html>
