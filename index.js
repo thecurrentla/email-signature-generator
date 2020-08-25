@@ -10,7 +10,7 @@ var render = function () {
 		applyWidthAttributes: true,
 		applyHeightAttributes: true,
 		applyAttributesTableElements: true,
-		inlinePseudoElements: false,
+		inlinePseudoElements: true,
 		xmlMode: false,
 		preserveImportant: false,
 	};
