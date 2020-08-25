@@ -24,6 +24,7 @@
 
 body {
 	max-width: 600px;
+
 	margin: 0 auto;
 	padding: 1.5rem;
 
@@ -31,6 +32,11 @@ body {
 		Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
 	font-weight: 450;
 	font-size: calc(1rem + 0.25vmin);
+}
+@supports (display: grid) {
+	body {
+		max-width: 100%;
+	}
 }
 body > * + * {
 	--flow-spacing: 4rem;
@@ -71,11 +77,30 @@ button {
 	font-weight: bold;
 }
 
+li {
+	--flow-spacing: 0.4em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.2;
+}
+h1 {
+	margin: 0;
+}
+h1 * {
+	--flow-spacing: 0;
+}
 h1 small {
 	opacity: 0.75;
 	font-weight: lighter;
 	line-height: 1;
 }
+
 summary {
 	font-weight: bolder;
 
@@ -84,6 +109,30 @@ summary {
 summary:hover {
 	background: #efefef;
 	box-shadow: 0 0 0 0.5rem #efefef;
+}
+
+form {
+}
+fieldset {
+	display: flex;
+	flex-flow: column;
+	align-items: flex-start;
+
+	padding: 0;
+	border: 0;
+}
+
+@supports (display: grid) {
+	@media (min-width: 30ch) {
+		form {
+			display: grid;
+			grid-gap: 1.5rem;
+			grid-template-columns: 1fr 1fr;
+		}
+		fieldset {
+			margin: 0;
+		}
+	}
 }
 
 label {
@@ -104,10 +153,12 @@ textarea {
 	padding: 1em;
 	background-color: white;
 	border: 1px solid #bbb;
+	box-shadow: none;
 }
 output {
+	flex-grow: 1;
+	flex-basis: 4.5em;
 	border-color: #ddd;
-	min-height: 6rem;
 	font-weight: normal;
 }
 output * {

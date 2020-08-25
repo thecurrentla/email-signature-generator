@@ -14,16 +14,19 @@
 				</header>
 				<main>
 						<form>
-								<label for="name">Name</label>
-								<input type="text" id="name" name="name" placeholder="Your Name" required="required">
+								<fieldset>
+										<label for="name">Name</label>
+										<input type="text" id="name" name="name" placeholder="Your Name" required="required">
 
-								<label for="title">Title</label>
-								<input type="text" id="title" name="title" placeholder="Your Title">
-
-								<label for="output">Output</label>
-								<output id="output" name="output" for="name title"></output>
-								<textarea id="result" name="result" hidden="hidden" required="required"></textarea>
-								<clipboard-copy for="result">Copy</clipboard-copy>
+										<label for="title">Title</label>
+										<input type="text" id="title" name="title" placeholder="Your Title">
+								</fieldset>
+								<fieldset>
+										<label for="output">Output</label>
+										<output id="output" name="output" for="name title"></output>
+										<textarea id="result" name="result" hidden="hidden" required="required"></textarea>
+										<clipboard-copy for="result">Copy</clipboard-copy>
+								</fieldset>
 						</form>
 				</main>
 
